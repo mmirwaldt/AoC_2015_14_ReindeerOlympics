@@ -12,7 +12,7 @@ import static net.mirwaldt.ReindeerRaceSimulator.simulateRaceAndReturnWinningDis
 public class ReindeerRaceSimulatorMain {
     public static void main(String[] args) throws IOException {
         final List<String> lines = Files.readAllLines(Path.of("input.txt"), StandardCharsets.US_ASCII);
-        final ReindeerRaceSimulator reindeerRaceSimulator = new DefaultReindeerRaceSimulator();
+        final ReindeerRaceSimulator reindeerRaceSimulator = new DistanceReindeerRaceSimulator();
         for (String line : lines) {
             final String[] tokens = line.split(" ");
             final String name = tokens[0];

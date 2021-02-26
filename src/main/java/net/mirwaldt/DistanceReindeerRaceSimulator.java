@@ -4,7 +4,7 @@ import java.util.*;
 
 import static java.lang.Math.min;
 
-public class DefaultReindeerRaceSimulator implements ReindeerRaceSimulator {
+public class DistanceReindeerRaceSimulator implements ReindeerRaceSimulator {
     private final List<Reindeer> reindeers = new ArrayList<>();
 
     @Override

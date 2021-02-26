@@ -9,9 +9,9 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ReindeerRaceSimulatorTest {
+public class DistanceReindeerRaceSimulatorTest {
     private static Stream<Arguments> reindeerRaceSimulator() {
-        return Stream.of(Arguments.of(new DefaultReindeerRaceSimulator()));
+        return Stream.of(Arguments.of(new DistanceReindeerRaceSimulator()));
     }
 
     @ParameterizedTest
