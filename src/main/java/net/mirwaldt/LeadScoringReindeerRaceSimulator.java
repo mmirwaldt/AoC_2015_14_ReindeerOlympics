@@ -11,23 +11,23 @@ public class LeadScoringReindeerRaceSimulator extends AbstractReindeerRaceSimula
     private final List<Reindeer> reindeers = new ArrayList<>();
 
     @Override
-    public void addReindeer(String name, int velocityInKmPerSecond, int flyingTimeInSeconds, int restTimeInSeconds) {
-        reindeers.add(new Reindeer(name, velocityInKmPerSecond, flyingTimeInSeconds, restTimeInSeconds));
+    public void addReindeer(String name, int velocity, int flyingTime, int restTime) {
+        reindeers.add(new Reindeer(name, velocity, flyingTime, restTime));
     }
 
     @Override
-    public Map<String, Integer> simulateRace(int timeInSeconds) {
+    public Map<String, Integer> simulateRace(int time) {
         final Map<String, int[]> scores = new HashMap<>();
         for (Reindeer reindeer : reindeers) {
             scores.put(reindeer.getName(), new int[1]);
         }
 
         final List<Reindeer> leadingReindeers = new ArrayList<>();
-        for (int elapsedTimeInSeconds = 1; elapsedTimeInSeconds <= timeInSeconds; elapsedTimeInSeconds++) {
+        for (int elapsedTime = 1; elapsedTime <= time; elapsedTime++) {
             int maxDistance = 0;
             leadingReindeers.clear();
             for (Reindeer reindeer : reindeers) {
-                final int distance = simulateRacingReindeer(reindeer, elapsedTimeInSeconds);
+                final int distance = simulateRacingReindeer(reindeer, elapsedTime);
                 if(maxDistance < distance) {
                     leadingReindeers.clear();
                     leadingReindeers.add(reindeer);

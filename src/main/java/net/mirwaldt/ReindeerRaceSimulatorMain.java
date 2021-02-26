@@ -38,10 +38,10 @@ public class ReindeerRaceSimulatorMain {
         for (String line : lines) {
             final String[] tokens = line.split(" ");
             final String name = tokens[0];
-            final int velocityInKmPerSecond = Integer.parseInt(tokens[3]);
-            final int flyingTimeInSeconds = Integer.parseInt(tokens[6]);
-            final int restTimeInSeconds = Integer.parseInt(tokens[13]);
-            reindeerRaceSimulator.addReindeer(name, velocityInKmPerSecond, flyingTimeInSeconds, restTimeInSeconds);
+            final int velocity = Integer.parseInt(tokens[3]);
+            final int flyingTime = Integer.parseInt(tokens[6]);
+            final int restTime = Integer.parseInt(tokens[13]);
+            reindeerRaceSimulator.addReindeer(name, velocity, flyingTime, restTime);
         }
     }
 }

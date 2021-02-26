@@ -4,31 +4,31 @@ import java.util.Objects;
 
 public class Reindeer {
     private final String name;
-    private final int velocityInKmPerSecond;
-    private final int flyingTimeInSeconds;
-    private final int restTimeInSeconds;
+    private final int velocity;
+    private final int flyingTime;
+    private final int restTime;
 
-    public Reindeer(String name, int velocityInKmPerSecond, int flyingTimeInSeconds, int restTimeInSeconds) {
+    public Reindeer(String name, int velocity, int flyingTime, int restTime) {
         this.name = name;
-        this.velocityInKmPerSecond = velocityInKmPerSecond;
-        this.flyingTimeInSeconds = flyingTimeInSeconds;
-        this.restTimeInSeconds = restTimeInSeconds;
+        this.velocity = velocity;
+        this.flyingTime = flyingTime;
+        this.restTime = restTime;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getVelocityInKmPerSecond() {
-        return velocityInKmPerSecond;
+    public int getVelocity() {
+        return velocity;
     }
 
-    public int getFlyingTimeInSeconds() {
-        return flyingTimeInSeconds;
+    public int getFlyingTime() {
+        return flyingTime;
     }
 
-    public int getRestTimeInSeconds() {
-        return restTimeInSeconds;
+    public int getRestTime() {
+        return restTime;
     }
 
     @Override
@@ -36,24 +36,24 @@ public class Reindeer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Reindeer reindeer = (Reindeer) o;
-        return velocityInKmPerSecond == reindeer.velocityInKmPerSecond
-                && flyingTimeInSeconds == reindeer.flyingTimeInSeconds
-                && restTimeInSeconds == reindeer.restTimeInSeconds
+        return velocity == reindeer.velocity
+                && flyingTime == reindeer.flyingTime
+                && restTime == reindeer.restTime
                 && Objects.equals(name, reindeer.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, velocityInKmPerSecond, flyingTimeInSeconds, restTimeInSeconds);
+        return Objects.hash(name, velocity, flyingTime, restTime);
     }
 
     @Override
     public String toString() {
         return "Reindeer{" +
                 "name='" + name + '\'' +
-                ", velocityInKmPerSecond=" + velocityInKmPerSecond +
-                ", flyingTimeInSeconds=" + flyingTimeInSeconds +
-                ", restTimeInSeconds=" + restTimeInSeconds +
+                ", velocity=" + velocity +
+                ", flyingTime=" + flyingTime +
+                ", restTime" + restTime +
                 '}';
     }
 }

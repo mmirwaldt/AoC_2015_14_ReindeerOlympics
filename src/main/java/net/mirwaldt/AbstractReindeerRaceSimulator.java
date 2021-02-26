@@ -1,17 +1,26 @@
 package net.mirwaldt;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.lang.Math.min;
 
 public abstract class AbstractReindeerRaceSimulator implements ReindeerRaceSimulator {
+    protected final List<Reindeer> reindeers = new ArrayList<>();
 
-    public static int simulateRacingReindeer(Reindeer reindeer, int timeInSeconds) {
-        int traveledDistanceInKm = 0;
-        for (int elapsedTimeInSeconds = 0; elapsedTimeInSeconds < timeInSeconds; ) {
-            final int remainingTime = timeInSeconds - elapsedTimeInSeconds;
-            final int remainingFlyingTime = min(remainingTime, reindeer.getFlyingTimeInSeconds());
-            traveledDistanceInKm += reindeer.getVelocityInKmPerSecond() * remainingFlyingTime;
-            elapsedTimeInSeconds += reindeer.getFlyingTimeInSeconds() + reindeer.getRestTimeInSeconds();
+    @Override
+    public void addReindeer(String name, int velocity, int flyingTime, int restTime) {
+        reindeers.add(new Reindeer(name, velocity, flyingTime, restTime));
+    }
+
+    public static int simulateRacingReindeer(Reindeer reindeer, int time) {
+        int traveledDistance = 0;
+        for (int elapsedTime = 0; elapsedTime < time; ) {
+            final int remainingTime = time - elapsedTime;
+            final int remainingFlyingTime = min(remainingTime, reindeer.getFlyingTime());
+            traveledDistance += reindeer.getVelocity() * remainingFlyingTime;
+            elapsedTime += reindeer.getFlyingTime() + reindeer.getRestTime();
         }
-        return traveledDistanceInKm;
+        return traveledDistance;
     }
 }
