@@ -19,6 +19,20 @@ public class ReindeerRaceSimulatorTest {
     void test_example(ReindeerRaceSimulator reindeerRaceSimulator) {
         reindeerRaceSimulator.addReindeer("Comet", 14, 10, 127);
         reindeerRaceSimulator.addReindeer("Dancer", 16, 11, 162);
+        assertEquals(Map.of("Comet", 140, "Dancer", 160),
+                reindeerRaceSimulator.simulateRace(10));
+        assertEquals(Map.of("Comet", 140, "Dancer", 176),
+                reindeerRaceSimulator.simulateRace(11));
+        assertEquals(Map.of("Comet", 140, "Dancer", 176),
+                reindeerRaceSimulator.simulateRace(12));
+        assertEquals(Map.of("Comet", 140, "Dancer", 176),
+                reindeerRaceSimulator.simulateRace(138));
+        assertEquals(Map.of("Comet", 280, "Dancer", 176),
+                reindeerRaceSimulator.simulateRace(148));
+        assertEquals(Map.of("Comet", 280, "Dancer", 176),
+                reindeerRaceSimulator.simulateRace(174));
+        assertEquals(Map.of("Comet", 280, "Dancer", 352),
+                reindeerRaceSimulator.simulateRace(185));
         assertEquals(Map.of("Comet", 1120, "Dancer", 1056),
                 reindeerRaceSimulator.simulateRace(1000));
     }
