@@ -23,7 +23,7 @@ public class DefaultReindeerRaceSimulator implements ReindeerRaceSimulator {
 
     int simulateRacingReindeer(Reindeer reindeer, int timeInSeconds) {
         int traveledDistanceInKm = 0;
-        for (int elapsedTimeInSeconds = 0; elapsedTimeInSeconds < timeInSeconds; elapsedTimeInSeconds++) {
+        for (int elapsedTimeInSeconds = 0; elapsedTimeInSeconds < timeInSeconds; ) {
             final int remainingTime = timeInSeconds - elapsedTimeInSeconds;
             final int remainingFlyingTime = min(remainingTime, reindeer.getFlyingTimeInSeconds());
             traveledDistanceInKm += reindeer.getVelocityInKmPerSecond() * remainingFlyingTime;
