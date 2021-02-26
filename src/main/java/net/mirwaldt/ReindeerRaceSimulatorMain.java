@@ -28,5 +28,7 @@ public class ReindeerRaceSimulatorMain {
         System.out.println(raceResults);
         // 2655
         System.out.println(simulateRaceAndReturnWinningDistance(raceResults));
+
+
     }
 }
