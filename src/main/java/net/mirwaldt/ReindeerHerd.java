@@ -8,10 +8,8 @@ public class ReindeerHerd {
     private NavigableMap<Integer, Set<Reindeer>> restingReindeers = new TreeMap<>();
     private NavigableMap<Integer, Set<Reindeer>> newFlyingReindeers;
     private NavigableMap<Integer, Set<Reindeer>> newRestingReindeers;
-    private Set<Reindeer> allReindeers;
 
     public void init(List<Reindeer> reindeers) {
-        this.allReindeers = new HashSet<>(reindeers);
         for (Reindeer reindeer : reindeers) {
             flyingReindeers.computeIfAbsent(
                     reindeer.getFlyingTime(), key -> new HashSet<>()).add(reindeer);
@@ -28,12 +26,6 @@ public class ReindeerHerd {
 
     public Set<Reindeer> getAllFlyingReindeers() {
         return flyingReindeers.values().stream()
-                .flatMap(Collection::stream)
-                .collect(Collectors.toSet());
-    }
-
-    public Set<Reindeer> getReindeers(NavigableMap<Integer, Set<Reindeer>> reindeerMap) {
-        return reindeerMap.values().stream()
                 .flatMap(Collection::stream)
                 .collect(Collectors.toSet());
     }
