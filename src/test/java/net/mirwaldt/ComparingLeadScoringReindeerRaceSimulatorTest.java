@@ -2,6 +2,13 @@ package net.mirwaldt;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+import static net.mirwaldt.ReindeerRaceSimulatorMain.addReindeers;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComparingLeadScoringReindeerRaceSimulatorTest {
@@ -31,5 +38,18 @@ public class ComparingLeadScoringReindeerRaceSimulatorTest {
             assertEquals(expectedScoresSimulator.simulateRace(i), actualScoresSimulator.simulateRace(i), "i=" + i);
         }
 //        assertEquals(expectedScoresSimulator.simulateRace(47), actualScoresSimulator.simulateRace(47));
+    }
+
+    @Test
+    void test_partTwo() throws IOException {
+        final List<String> lines = Files.readAllLines(Path.of("input.txt"), StandardCharsets.US_ASCII);
+        final ReindeerRaceSimulator expectedScoresSimulator = new LeadScoringReindeerRaceSimulator();
+        final ReindeerRaceSimulator actualScoresSimulator = new EfficientLeadScoringReindeerRaceSimulator();
+        addReindeers(lines, expectedScoresSimulator);
+        addReindeers(lines, actualScoresSimulator);
+        for (int i = 0; i < 2503; i++) {
+            assertEquals(expectedScoresSimulator.simulateRace(i), actualScoresSimulator.simulateRace(i), "i=" + i);
+        }
+//        assertEquals(expectedScoresSimulator.simulateRace(2066), actualScoresSimulator.simulateRace(2066));
     }
 }

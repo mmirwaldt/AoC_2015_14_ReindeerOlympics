@@ -26,11 +26,11 @@ public class EfficientLeadScoringReindeerRaceSimulator extends AbstractReindeerR
 
         private void simulate(int time) {
             for (int elapsedTime = 0; elapsedTime < time; ) {
-                elapsedTime += letReindeersFlyAndRestAndFinishResting(time, elapsedTime);
+                elapsedTime += letReindeersFlyAndRest(time, elapsedTime);
              }
         }
 
-        private int letReindeersFlyAndRestAndFinishResting(int time, int elapsedTime) {
+        private int letReindeersFlyAndRest(int time, int elapsedTime) {
             final int remainingTime = min(time - elapsedTime, getTimeOfFirstEntry());
             reindeerRaceScore.letReindeersFly(remainingTime, reindeerHerd.getAllFlyingReindeers());
             reindeerHerd.updateFlyingAndRestingReindeers(remainingTime);

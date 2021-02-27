@@ -34,7 +34,7 @@ public class ReindeerRaceSimulatorMain {
         System.out.println(simulateRaceAndReturnWinningDistance(raceResultsPartTwo));
     }
 
-    private static void addReindeers(List<String> lines, ReindeerRaceSimulator reindeerRaceSimulator) {
+    public static void addReindeers(List<String> lines, ReindeerRaceSimulator reindeerRaceSimulator) {
         for (String line : lines) {
             final String[] tokens = line.split(" ");
             final String name = tokens[0];

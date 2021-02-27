@@ -8,8 +8,10 @@ public class ReindeerHerd {
     private NavigableMap<Integer, Set<Reindeer>> restingReindeers = new TreeMap<>();
     private NavigableMap<Integer, Set<Reindeer>> newFlyingReindeers;
     private NavigableMap<Integer, Set<Reindeer>> newRestingReindeers;
+    private Set<Reindeer> allReindeers;
 
     public void init(List<Reindeer> reindeers) {
+        this.allReindeers = new HashSet<>(reindeers);
         for (Reindeer reindeer : reindeers) {
             flyingReindeers.computeIfAbsent(
                     reindeer.getFlyingTime(), key -> new HashSet<>()).add(reindeer);
@@ -30,6 +32,12 @@ public class ReindeerHerd {
                 .collect(Collectors.toSet());
     }
 
+    public Set<Reindeer> getReindeers(NavigableMap<Integer, Set<Reindeer>> reindeerMap) {
+        return reindeerMap.values().stream()
+                .flatMap(Collection::stream)
+                .collect(Collectors.toSet());
+    }
+
     public void updateFlyingAndRestingReindeers(int remainingTime) {
         newFlyingReindeers = new TreeMap<>();
         newRestingReindeers = new TreeMap<>();
@@ -45,8 +53,9 @@ public class ReindeerHerd {
         for (Map.Entry<Integer, Set<Reindeer>> entry : restingReindeers.entrySet()) {
             final int remainingRestingTime = entry.getKey() - remainingTime;
             if (0 < remainingRestingTime) {
-                newRestingReindeers.put(remainingRestingTime, entry.getValue());
-            } else {
+                newRestingReindeers.computeIfAbsent(remainingRestingTime,
+                        key -> new HashSet<>()).addAll(entry.getValue());
+            } else if(0 == remainingRestingTime) {
                 for (Reindeer restedReindeer : entry.getValue()) {
                     newFlyingReindeers.computeIfAbsent(restedReindeer.getFlyingTime(),
                             key -> new HashSet<>()).add(restedReindeer);
@@ -59,8 +68,9 @@ public class ReindeerHerd {
         for (Map.Entry<Integer, Set<Reindeer>> entry : flyingReindeers.entrySet()) {
             final int remainingFlyingTime = entry.getKey() - remainingTime;
             if (0 < remainingFlyingTime) {
-                newFlyingReindeers.put(remainingFlyingTime, entry.getValue());
-            } else {
+                newFlyingReindeers.computeIfAbsent(remainingFlyingTime,
+                        key -> new HashSet<>()).addAll(entry.getValue());
+            } else if(0 == remainingFlyingTime) {
                 for (Reindeer nextRestingReindeer : entry.getValue()) {
                     newRestingReindeers.computeIfAbsent(nextRestingReindeer.getRestTime(),
                             key -> new HashSet<>()).add(nextRestingReindeer);
