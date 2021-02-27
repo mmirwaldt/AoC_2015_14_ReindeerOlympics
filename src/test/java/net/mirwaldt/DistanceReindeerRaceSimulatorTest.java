@@ -1,5 +1,6 @@
 package net.mirwaldt;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -16,7 +17,7 @@ public class DistanceReindeerRaceSimulatorTest {
 
     @ParameterizedTest
     @MethodSource("reindeerRaceSimulator")
-    void test_example(ReindeerRaceSimulator reindeerRaceSimulator) {
+    void test_simulateRace(ReindeerRaceSimulator reindeerRaceSimulator) {
         reindeerRaceSimulator.addReindeer("Comet", 14, 10, 127);
         reindeerRaceSimulator.addReindeer("Dancer", 16, 11, 162);
         assertEquals(Map.of("Comet", 140, "Dancer", 160),

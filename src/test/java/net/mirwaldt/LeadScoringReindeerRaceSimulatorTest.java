@@ -11,7 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LeadScoringReindeerRaceSimulatorTest {
     private static Stream<Arguments> reindeerRaceSimulator() {
-        return Stream.of(Arguments.of(new LeadScoringReindeerRaceSimulator()));
+        return Stream.of(Arguments.of(new LeadScoringReindeerRaceSimulator()),
+                Arguments.of(new EfficientLeadScoringReindeerRaceSimulator()));
     }
 
     @ParameterizedTest

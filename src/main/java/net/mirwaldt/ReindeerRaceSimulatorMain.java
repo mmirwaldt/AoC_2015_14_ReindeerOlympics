@@ -23,7 +23,7 @@ public class ReindeerRaceSimulatorMain {
         System.out.println(simulateRaceAndReturnWinningDistance(raceResultsForPartOne));
 
 
-        final ReindeerRaceSimulator reindeerRaceSimulatorForPartTwo = new LeadScoringReindeerRaceSimulator();
+        final ReindeerRaceSimulator reindeerRaceSimulatorForPartTwo = new EfficientLeadScoringReindeerRaceSimulator();
         addReindeers(lines, reindeerRaceSimulatorForPartTwo);
 
         final Map<String, Integer> raceResultsPartTwo = reindeerRaceSimulatorForPartTwo.simulateRace(2503);
