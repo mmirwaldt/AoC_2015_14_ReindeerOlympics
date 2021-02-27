@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 
-import static net.mirwaldt.ReindeerRaceSimulator.simulateRaceAndReturnWinningDistance;
+import static net.mirwaldt.ReindeerRaceSimulator.simulateRaceAndReturnWinning;
 
 public class ReindeerRaceSimulatorMain {
     public static void main(String[] args) throws IOException {
@@ -20,7 +20,7 @@ public class ReindeerRaceSimulatorMain {
         // {Donner=2655, Vixen=2640, Comet=2493, Prancer=2484, Dasher=2460, Blitzen=2496, Dancer=2516, Rudolph=2540, Cupid=2592}
         System.out.println(raceResultsForPartOne);
         // 2655
-        System.out.println(simulateRaceAndReturnWinningDistance(raceResultsForPartOne));
+        System.out.println(simulateRaceAndReturnWinning(raceResultsForPartOne));
 
 
         final ReindeerRaceSimulator reindeerRaceSimulatorForPartTwo = new EfficientLeadScoringReindeerRaceSimulator();
@@ -31,7 +31,7 @@ public class ReindeerRaceSimulatorMain {
         // {Donner=414, Vixen=1059, Comet=22, Prancer=153, Dasher=0, Blitzen=5, Dancer=1, Rudolph=887, Cupid=13}
         System.out.println(raceResultsPartTwo);
         // 1059
-        System.out.println(simulateRaceAndReturnWinningDistance(raceResultsPartTwo));
+        System.out.println(simulateRaceAndReturnWinning(raceResultsPartTwo));
     }
 
     public static void addReindeers(List<String> lines, ReindeerRaceSimulator reindeerRaceSimulator) {
