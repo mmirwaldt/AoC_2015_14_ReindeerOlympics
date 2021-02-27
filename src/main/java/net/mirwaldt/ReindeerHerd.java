@@ -30,7 +30,6 @@ public class ReindeerHerd {
                 .collect(Collectors.toSet());
     }
 
-
     public void updateFlyingAndRestingReindeers(int remainingTime) {
         newFlyingReindeers = new TreeMap<>();
         newRestingReindeers = new TreeMap<>();
