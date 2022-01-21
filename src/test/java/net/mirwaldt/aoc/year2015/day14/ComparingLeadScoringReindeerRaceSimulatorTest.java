@@ -1,4 +1,4 @@
-package net.mirwaldt;
+package net.mirwaldt.aoc.year2015.day14;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-import static net.mirwaldt.ReindeerRaceSimulatorMain.addReindeers;
+import static net.mirwaldt.aoc.year2015.day14.ReindeerRaceSimulatorMain.addReindeers;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComparingLeadScoringReindeerRaceSimulatorTest {

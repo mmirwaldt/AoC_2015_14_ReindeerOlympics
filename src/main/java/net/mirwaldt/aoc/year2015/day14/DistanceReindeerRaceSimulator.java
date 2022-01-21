@@ -1,4 +1,4 @@
-package net.mirwaldt;
+package net.mirwaldt.aoc.year2015.day14;
 
 import java.util.HashMap;
 import java.util.Map;
